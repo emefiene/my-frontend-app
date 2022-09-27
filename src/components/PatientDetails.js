@@ -33,7 +33,6 @@ const PatientDetails = ({}) => {
         <h4>{patientsDetail.last_name}</h4>
         <h4>{patientsDetail.email}</h4>
         <h4>{patientsDetail.address}</h4>
-        <h4>{patientsDetail.first_name}</h4>
         <p>{patientsDetail.age}</p>
         <p>{patientsDetail.phone}</p>
         <h4>{patientsDetail.symptoms}</h4>
