@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-const PatientsList = ({patientsObj:{address,age,email,first_name,last_name,phone,symptoms}}) => {
+
+const PatientsList = ({patientsObj:{address,age,email,first_name,last_name,phone,symptoms},patientsObj}) => {
     
   return (
     <div>
@@ -11,6 +13,7 @@ const PatientsList = ({patientsObj:{address,age,email,first_name,last_name,phone
        <h4>{email}</h4>
        <p>{phone}</p>
        <h5>{symptoms}</h5>
+       <Link to={`patients/${patientsObj.id}`}>Click</Link>
 
 
     </div>

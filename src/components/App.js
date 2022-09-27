@@ -25,6 +25,7 @@ function App() {
       setPatientsData(data)
     })
 
+
   },[])
   return (
     <div>
