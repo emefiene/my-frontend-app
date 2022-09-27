@@ -38,7 +38,7 @@ function App() {
           <PatientContainer patientsData={patientsData}/>
         </Route>
         <Route exact path="/patients/:id">
-          <PatientDetails/>
+          <PatientDetails patientsData={patientsData}/>
         </Route>
       </Switch>
     </div>
