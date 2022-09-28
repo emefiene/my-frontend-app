@@ -1,14 +1,13 @@
 import React from 'react'
 
-const PatientForm = ({handleChangePatientForm, patientForm}) => {
-
-  return (
-   <form>
+const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}) => {
+ return (
+   <form onSubmit={handleSubmitPatient}>
     <label>First Name</label>
       <input
        type="text"
        name="first_name"
-       aria-label="first-name"
+       aria-label="first_name"
        value={patientForm.first_name}
        onChange={handleChangePatientForm}
       ></input>
@@ -16,7 +15,7 @@ const PatientForm = ({handleChangePatientForm, patientForm}) => {
       <input
        type="text"
        name="last_name"
-       aria-label="last-name"
+       aria-label="last_name"
        value={patientForm.last_name}
        onChange={handleChangePatientForm}
       ></input>
@@ -62,9 +61,8 @@ const PatientForm = ({handleChangePatientForm, patientForm}) => {
       ></input>
       <input type="submit"></input>
 
-      </form>
+    </form>
   )
 }
 
 export default PatientForm
-

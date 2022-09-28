@@ -42,10 +42,11 @@ function App() {
   const handleChangePatientForm = (e) => {
      setPatientForm({...patientForm, [e.target.name]:e.target.value})
   }
+  
   return (
     <div>
       <Home/>
-      <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm}/>
+      <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
       <Switch>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>
