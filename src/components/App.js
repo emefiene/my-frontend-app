@@ -54,8 +54,9 @@ function App() {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        setPhysiciansData([data,...physiciansData])
       })
+      setPatientForm(initialized)
   }
 
   return (
