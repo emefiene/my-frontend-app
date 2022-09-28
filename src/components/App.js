@@ -43,6 +43,21 @@ function App() {
      setPatientForm({...patientForm, [e.target.name]:e.target.value})
   }
   
+  const handleSubmitPatient = (e) => {
+      e.preventDefault()
+      fetch("http://localhost:9292/patients", {
+        method: "POST",
+        headers:{
+          "content-type":"application/json"
+        },
+        body: JSON.stringify(patientForm)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+  }
+
   return (
     <div>
       <Home/>
