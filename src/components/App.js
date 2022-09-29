@@ -59,6 +59,8 @@ function App() {
       setPatientForm(initialized)
   }
 
+
+
   return (
     <div>
       <Home/>
@@ -71,7 +73,10 @@ function App() {
           <PatientContainer patientsData={patientsData}/>
         </Route>
         <Route exact path="/patients/:id">
-          <PatientDetails patientsData={patientsData}/>
+          <PatientDetails/>
+        </Route>
+        <Route exact path="/patients/edit/:id">
+          <PatientDetails/>
         </Route>
       </Switch>
     </div>
