@@ -21,11 +21,19 @@ function App() {
     phone: "",
     symptoms: "",
   }
+
+  const reviewInitial = {
+    patient_id:"",
+    time:"",
+    comments:"",
+  }
+
   const [physiciansData, setPhysiciansData] = useState([])
   const [patientsData, setPatientsData] = useState([])
   const [appointment , setAppointment] = useState([])
   const [patientForm, setPatientForm] = useState(initialized)
   const [reviews, setReviews] = useState([])
+  const [reviewData, setReviewData] = useState(reviewInitial)
   
 
   useEffect(() => {
@@ -61,6 +69,7 @@ function App() {
   
   const handleSubmitPatient = (e) => {
       e.preventDefault()
+      console.log(e)
       fetch("http://localhost:9292/patients", {
         method: "POST",
         headers:{
@@ -75,7 +84,14 @@ function App() {
       setPatientForm(initialized)
   }
 
+  const handleChange = (e) => {
+    setReviewData({...reviewData,[e.target.name]:e.target.value})
+ }
 
+ const handleSubmitReview = (e) => {
+   e.preventDefault()
+   console.log(e)
+ }
 
   return (
     <div>
@@ -85,7 +101,7 @@ function App() {
       <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
       </Route>
          <Route exact path="/post">
-      <ReviewForm/>
+      <ReviewForm handleChange={handleChange} reviewData={reviewData} handleSubmitReview={handleSubmitReview}/>
      </Route>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>

@@ -1,28 +1,26 @@
-import React, {useState} from 'react'
-
-const ReviewForm = () => {
-   const [reviewData, setReviewData] = useState()
+import React from 'react'
 
 
-   const handleChange = (e) => {
-      setReviewData({...reviewData,[e.target.name]:e.target.value})
-   }
+const ReviewForm = ({handleChange,reviewData,handleSubmitReview}) => {
+
 
   return (
-    <div>
-      <form>
+      <form onSubmit={handleSubmitReview}>
          <label>Name</label>
            <input
            type="text"
            name = "patient_id"
            aria-label='patient_id'
+           value={reviewData.patient_id}
            onChange={handleChange}
           ></input>
           <label>Time</label>
+        
           <input
-            type="datetime"
+            type="datetime-local"
             name = "time"
             aria-label='time'
+            value={reviewData.time}
             onChange={handleChange}
           ></input>
          <label>Comment</label>
@@ -30,10 +28,11 @@ const ReviewForm = () => {
             type="text"
             name = "comments"
             aria-label='comments'
+            value={reviewData.comments}
             onChange={handleChange}
           ></input>
+          <input type="submit"/>
       </form>
-    </div>
   )
 }
 
