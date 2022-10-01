@@ -6,7 +6,7 @@ import PatientContainer from "./PatientContainer";
 import PatientDetails from "./PatientDetails";
 import PatientForm from "./PatientForm";
 import AppointmentContainer from "./AppointmentContainer";
-import PatientReview from "./PatientReview";
+import ReviewContainer from "./PatientReview";
 
 
 function App() {
@@ -81,7 +81,7 @@ function App() {
           <AppointmentContainer appointment={appointment} physiciansData={physiciansData}/> 
         </Route>
         <Route exact path="/reviews">
-          <PatientReview/>
+          <ReviewContainer/>
         </Route>
         <Route exact path="/patients">
           <PatientContainer patientsData={patientsData}/>
