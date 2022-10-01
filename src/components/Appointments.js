@@ -27,6 +27,13 @@ const Appointments = ({appointmentObj:{patient_id,physician_id, date}}) => {
   }
 })
 
+ const y = physicianData.map(physicianName => {
+  if(physician_id === physicianName.id){
+    return (physicianName.specialty)
+  }
+})
+
+ 
   
   return (
     <div>
