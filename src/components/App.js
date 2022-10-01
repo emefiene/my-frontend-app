@@ -7,6 +7,7 @@ import PatientDetails from "./PatientDetails";
 import PatientForm from "./PatientForm";
 import AppointmentContainer from "./AppointmentContainer";
 import ReviewContainer from "./ReviewContainer";
+import ReviewForm from "./ReviewForm";
 
 
 
@@ -79,8 +80,13 @@ function App() {
   return (
     <div>
       <Home/>
-      <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
       <Switch>
+       <Route exact path="/form">
+      <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
+      </Route>
+         <Route exact path="/post">
+      <ReviewForm/>
+     </Route>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>
         </Route>

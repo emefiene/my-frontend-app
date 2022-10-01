@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
+
 const PatientReviews = ({reviewObj:{comments,time,patient_id}}) => {
 
  const [patientsData, setPatientsData] = useState([])
