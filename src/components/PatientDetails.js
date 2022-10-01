@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react'
+ import React, {useEffect, useState} from 'react'
  import { useParams  } from 'react-router-dom'
+ import { Link } from 'react-router-dom';
 
 const PatientDetails = ({}) => {
   
@@ -37,6 +38,7 @@ const PatientDetails = ({}) => {
         <p>{patientsDetail.phone}</p>
         <h4>{patientsDetail.symptoms}</h4>
         <button onClick={handleDelete}>Delete</button>
+        <Link to={`patients/${patientsDetail.id}`}>Edit {patientsDetail.first_name}</Link>
     
     </div>
   )

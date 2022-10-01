@@ -5,6 +5,7 @@ import PhysicianContainer from "./PhysicianContainer";
 import PatientContainer from "./PatientContainer";
 import PatientDetails from "./PatientDetails";
 import PatientForm from "./PatientForm";
+import AppointmentContainer from "./AppointmentContainer";
 
 
 
@@ -20,6 +21,7 @@ function App() {
   }
   const [physiciansData, setPhysiciansData] = useState([])
   const [patientsData, setPatientsData] = useState([])
+  const [appointment , setAppointment] = useState([])
   const [patientForm, setPatientForm] = useState(initialized)
   
 
@@ -34,6 +36,12 @@ function App() {
     .then(res => res.json())
     .then(data => {
       setPatientsData(data)
+    })
+
+    fetch("http://localhost:9292/appointment")
+    .then(res => res.json())
+    .then(data => {
+      setAppointment(data)
     })
 
 
@@ -68,6 +76,9 @@ function App() {
       <Switch>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>
+        </Route>
+        <Route exact path="/appointment">
+          <AppointmentContainer appointment={appointment} physiciansData={physiciansData}/> 
         </Route>
         <Route exact path="/patients">
           <PatientContainer patientsData={patientsData}/>
