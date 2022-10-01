@@ -6,7 +6,8 @@ import PatientContainer from "./PatientContainer";
 import PatientDetails from "./PatientDetails";
 import PatientForm from "./PatientForm";
 import AppointmentContainer from "./AppointmentContainer";
-import ReviewContainer from "./PatientReview";
+import ReviewContainer from "./ReviewContainer";
+
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const [patientsData, setPatientsData] = useState([])
   const [appointment , setAppointment] = useState([])
   const [patientForm, setPatientForm] = useState(initialized)
+  const [reviews, setReviews] = useState([])
   
 
   useEffect(() => {
@@ -43,7 +45,12 @@ function App() {
     .then(data => {
       setAppointment(data)
     })
-
+  
+    fetch("http://localhost:9292/review")
+    .then(res => res.json())
+    .then(data => {
+      setReviews(data)
+    })
 
   },[])
   
@@ -81,7 +88,7 @@ function App() {
           <AppointmentContainer appointment={appointment} physiciansData={physiciansData}/> 
         </Route>
         <Route exact path="/reviews">
-          <ReviewContainer/>
+          <ReviewContainer reviews={reviews}/>
         </Route>
         <Route exact path="/patients">
           <PatientContainer patientsData={patientsData}/>
