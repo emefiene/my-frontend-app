@@ -3,20 +3,12 @@ import React from 'react'
 const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}) => {
  return (
    <form onSubmit={handleSubmitPatient}>
-    <label>First Name</label>
+    <label>Name</label>
       <input
        type="text"
-       name="first_name"
-       aria-label="first_name"
-       value={patientForm.first_name}
-       onChange={handleChangePatientForm}
-      ></input>
-      <label>Last Name</label>
-      <input
-       type="text"
-       name="last_name"
-       aria-label="last_name"
-       value={patientForm.last_name}
+       name="name"
+       aria-label="name"
+       value={patientForm.name}
        onChange={handleChangePatientForm}
       ></input>
       <label>E-mail</label>

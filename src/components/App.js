@@ -13,8 +13,7 @@ import ReviewForm from "./ReviewForm";
 
 function App() {
   const initialized = {
-    first_name: "",
-    last_name: "",
+    name: "",
     email: "",
     address: "",
     age: "",
@@ -34,6 +33,7 @@ function App() {
   const [patientForm, setPatientForm] = useState(initialized)
   const [reviews, setReviews] = useState([])
   const [reviewData, setReviewData] = useState(reviewInitial)
+  
   
 
   useEffect(() => {
@@ -69,7 +69,6 @@ function App() {
   
   const handleSubmitPatient = (e) => {
       e.preventDefault()
-      console.log(e)
       fetch("http://localhost:9292/patients", {
         method: "POST",
         headers:{
@@ -89,8 +88,19 @@ function App() {
  }
 
  const handleSubmitReview = (e) => {
-   e.preventDefault()
-   console.log(e)
+  e.preventDefault()
+  fetch("http://localhost:9292/review", {
+    method: "POST",
+    headers:{
+      "content-type":"application/json"
+    },
+    body: JSON.stringify(reviewData)
+  })
+  .then(res => res.json())
+  .then(data => {
+    setReviews([data,...reviews])
+  })
+  setReviewData(reviewInitial)
  }
 
   return (
