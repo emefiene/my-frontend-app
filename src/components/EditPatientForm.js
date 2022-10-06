@@ -10,7 +10,26 @@ const EditPatientForm = () => {
     phone: "",
    
   }
+     const [editPatientData, setEditPatientData] = useState(initialized)
+     const [editPatient, setEditPatient] = useState([])
+
+     const itemsId = useParams().id
+
+      
+      
+      useEffect(() => {
+        fetch(`http://localhost:9292/patients/${itemsId}`)
+        .then(res => res.json())
+        .then(data => {
+           setEditPatientData(data)
+           
+        })
+
+    }, [])
     
+    const handleChangePatientForm = (e) => {
+      setEditPatientData({...editPatientData, [e.target.name]:e.target.value})
+   }
 
     const handleSubmitPatient = (e) => {
       e.preventDefault()
