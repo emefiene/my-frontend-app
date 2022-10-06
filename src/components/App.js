@@ -8,6 +8,7 @@ import PatientForm from "./PatientForm";
 import AppointmentContainer from "./AppointmentContainer";
 import ReviewContainer from "./ReviewContainer";
 import ReviewForm from "./ReviewForm";
+import EditPatientForm from "./EditPatientForm";
 
 
 
@@ -86,6 +87,9 @@ function App() {
       </Route>
          <Route exact path="/review/:patientId/post">
       <ReviewForm />
+     </Route>
+        <Route exact path="/patients/:id">
+          <EditPatientForm/>
      </Route>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>

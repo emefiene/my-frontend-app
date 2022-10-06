@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useParams  } from 'react-router-dom'
 
 const EditPatientForm = () => {
@@ -10,26 +10,7 @@ const EditPatientForm = () => {
     phone: "",
    
   }
-     const [editPatientData, setEditPatientData] = useState(initialized)
-     const [editPatient, setEditPatient] = useState([])
-
-     const itemsId = useParams().id
-
-      
-      
-      useEffect(() => {
-        fetch(`http://localhost:9292/patients/${itemsId}`)
-        .then(res => res.json())
-        .then(data => {
-           setEditPatient(data)
-           
-        })
-
-    }, [])
     
-    const handleChangePatientForm = (e) => {
-      setEditPatientData({...editPatientData, [e.target.name]:e.target.value})
-   }
 
     const handleSubmitPatient = (e) => {
       e.preventDefault()
@@ -77,7 +58,7 @@ const EditPatientForm = () => {
            ></input>
            <label>Age</label>
            <input
-            type="number"
+            type="text"
             name="age"
             aria-label="age"
             value={editPatientData.age}
@@ -85,7 +66,7 @@ const EditPatientForm = () => {
            ></input>
            <label>Phone</label>
            <input
-            type="number"
+            type="text"
             name="phone"
             aria-label="phone"
             value={editPatientData.phone}
