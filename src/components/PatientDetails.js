@@ -1,5 +1,5 @@
  import React, {useEffect, useState} from 'react'
- import { useParams  } from 'react-router-dom'
+ import { useParams , useHistory } from 'react-router-dom'
  import { Link } from 'react-router-dom';
 
 const PatientDetails = ({}) => {
@@ -7,6 +7,10 @@ const PatientDetails = ({}) => {
     const [patientsDetail, setPatientsDetail] = useState([])
 
     const itemsId = useParams().id
+     
+    const history = useHistory()
+
+
     
 
     useEffect(() => {
@@ -25,6 +29,7 @@ const PatientDetails = ({}) => {
         .then(res => res.json)
         .then(detelePatient => {
             setPatientsDetail(detelePatient)
+            history.push("/patients")
         })
     }
 

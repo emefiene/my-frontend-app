@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams  } from 'react-router-dom'
+import { useParams ,useHistory } from 'react-router-dom'
 
 
 const ReviewForm = () => {
@@ -14,6 +14,8 @@ const ReviewForm = () => {
     const {patientId} = useParams()
 
     const Id = useParams().id
+
+    const history = useHistory()
     
     const handleChange = (e) => {
         setReviewData({...reviewData,[e.target.name]:e.target.value})
@@ -28,6 +30,7 @@ const ReviewForm = () => {
           },
           body: JSON.stringify(reviewData)
         })
+        history.push("/reviews")
     
     }
   

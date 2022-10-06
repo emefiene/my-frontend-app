@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams  } from 'react-router-dom'
+import { useParams, useHistory  } from 'react-router-dom'
 
 const EditPatientForm = () => {
   const initialized = {
@@ -12,6 +12,8 @@ const EditPatientForm = () => {
   }
      const [editPatientData, setEditPatientData] = useState(initialized)
      const [editPatient, setEditPatient] = useState([])
+
+     const history = useHistory()
 
      const itemsId = useParams().id
 
@@ -43,7 +45,7 @@ const EditPatientForm = () => {
       .then(res => res.json())
       .then(data => {
        setEditPatient(data)
-   
+       history.push("/patients")
          
       })
       
