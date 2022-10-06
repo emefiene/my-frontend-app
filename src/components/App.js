@@ -18,21 +18,20 @@ function App() {
     address: "",
     age: "",
     phone: "",
-    symptoms: "",
+    
   }
 
-  const reviewInitial = {
-    patient_id:"",
-    time:"",
-    comments:"",
-  }
+  // const reviewInitial = {
+  //   time:"",
+  //   comments:"",
+  // }
 
   const [physiciansData, setPhysiciansData] = useState([])
   const [patientsData, setPatientsData] = useState([])
   const [appointment , setAppointment] = useState([])
   const [patientForm, setPatientForm] = useState(initialized)
   const [reviews, setReviews] = useState([])
-  const [reviewData, setReviewData] = useState(reviewInitial)
+  // const [reviewData, setReviewData] = useState(reviewInitial)
   
   
 
@@ -83,25 +82,25 @@ function App() {
       setPatientForm(initialized)
   }
 
-  const handleChange = (e) => {
-    setReviewData({...reviewData,[e.target.name]:e.target.value})
- }
+//   const handleChange = (e) => {
+//     setReviewData({...reviewData,[e.target.name]:e.target.value})
+//  }
 
- const handleSubmitReview = (e) => {
-  e.preventDefault()
-  fetch("http://localhost:9292/review", {
-    method: "POST",
-    headers:{
-      "content-type":"application/json"
-    },
-    body: JSON.stringify(reviewData)
-  })
-  .then(res => res.json())
-  .then(data => {
-    setReviews([data,...reviews])
-  })
-  setReviewData(reviewInitial)
- }
+//  const handleSubmitReview = (e) => {
+//   e.preventDefault()
+//   fetch("http://localhost:9292/review", {
+//     method: "POST",
+//     headers:{
+//       "content-type":"application/json"
+//     },
+//     body: JSON.stringify(reviewData)
+//   })
+//   .then(res => res.json())
+//   .then(data => {
+//     setReviews([data,...reviews])
+//   })
+//   setReviewData(reviewInitial)
+//  }
 
   return (
     <div>
@@ -110,8 +109,8 @@ function App() {
        <Route exact path="/form">
       <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
       </Route>
-         <Route exact path="/post">
-      <ReviewForm handleChange={handleChange} reviewData={reviewData} handleSubmitReview={handleSubmitReview}/>
+         <Route exact path="/review/:patientId/post">
+      <ReviewForm />
      </Route>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>

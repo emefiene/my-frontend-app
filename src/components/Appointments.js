@@ -23,7 +23,7 @@ const Appointments = ({appointmentObj:{patient_id,physician_id, date}}) => {
 
  const p = patientsData.map(patientName => {
   if(patient_id === patientName.id){
-    return (patientName.first_name)
+    return (patientName.name)
   }
  })
 

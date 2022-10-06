@@ -16,7 +16,7 @@ const PatientReviews = ({reviewObj:{comments,time,patient_id}}) => {
  
  const p = patientsData.map(patientName => {
     if(patient_id === patientName.id){
-      return (patientName.first_name)
+      return (patientName.name)
     }
    })
 

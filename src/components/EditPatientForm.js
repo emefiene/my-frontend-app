@@ -3,13 +3,12 @@ import { useParams  } from 'react-router-dom'
 
 const EditPatientForm = () => {
   const initialized = {
-    first_name: "",
-    last_name: "",
+    name: "",
     email: "",
     address: "",
     age: "",
     phone: "",
-    symptoms: "",
+   
   }
      const [editPatientData, setEditPatientData] = useState(initialized)
      const [editPatient, setEditPatient] = useState([])
@@ -52,20 +51,12 @@ const EditPatientForm = () => {
 
   return (
         <form onSubmit={handleSubmitPatient}>
-         <label>First Name</label>
+         <label>Name</label>
            <input
             type="text"
-            name="first_name"
+            name="name"
             aria-label="first_name"
-            value={editPatientData.first_name}
-            onChange={handleChangePatientForm}
-           ></input>
-           <label>Last Name</label>
-           <input
-            type="text"
-            name="last_name"
-            aria-label="last_name"
-            value={editPatientData.last_name}
+            value={editPatientData.name}
             onChange={handleChangePatientForm}
            ></input>
            <label>E-mail</label>
@@ -98,14 +89,6 @@ const EditPatientForm = () => {
             name="phone"
             aria-label="phone"
             value={editPatientData.phone}
-            onChange={handleChangePatientForm}
-           ></input>
-           <label>Symptoms</label>
-           <input
-            type="text"
-            name="symptoms"
-            aria-label="symptoms"
-            value={editPatientData.symptoms}
             onChange={handleChangePatientForm}
            ></input>
            <input type="submit"></input>

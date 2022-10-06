@@ -43,14 +43,6 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
        value={patientForm.phone}
        onChange={handleChangePatientForm}
       ></input>
-      <label>Symptoms</label>
-      <input
-       type="text"
-       name="symptoms"
-       aria-label="symptoms"
-       value={patientForm.symptoms}
-       onChange={handleChangePatientForm}
-      ></input>
       <input type="submit"></input>
 
     </form>
