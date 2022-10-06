@@ -9,6 +9,7 @@ import AppointmentContainer from "./AppointmentContainer";
 import ReviewContainer from "./ReviewContainer";
 import ReviewForm from "./ReviewForm";
 import EditPatientForm from "./EditPatientForm";
+import Navbar from "./Navbar";
 
 
 
@@ -80,6 +81,7 @@ function App() {
 
   return (
     <div>
+      <Navbar/>
       <Home/>
       <Switch>
        <Route exact path="/form">
@@ -88,7 +90,7 @@ function App() {
          <Route exact path="/review/:patientId/post">
       <ReviewForm />
      </Route>
-        <Route exact path="/patients/:id">
+        <Route exact path="/edit/patients/:id">
           <EditPatientForm/>
      </Route>
        <Route exact path="/physicians">

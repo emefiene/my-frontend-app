@@ -36,7 +36,7 @@ const PatientDetails = ({}) => {
         <p>{patientsDetail.age}</p>
         <p>{patientsDetail.phone}</p>
         <button onClick={handleDelete}>Delete</button>
-        <Link to={`/patients/${itemsId}`}>Edit {itemsId.name}</Link>
+        <Link to={`/edit/patients/${patientsDetail.id}`}>Edit {patientsDetail.first_name}</Link>
 
         <Link to={`/review/${itemsId}/post`}> Review</Link>
     </div>
