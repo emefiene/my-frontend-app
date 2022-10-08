@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import styled from "styled-components"
 
 
 const PatientReviews = ({reviewObj:{comments,time,patient_id}}) => {
@@ -21,12 +22,34 @@ const PatientReviews = ({reviewObj:{comments,time,patient_id}}) => {
    })
 
   return(
-    <div>
-       <h2>Name: {p}</h2>
-       <strong>Comment :</strong><h4>{comments}</h4>
+    <Card>
+       <h2 style={{color: "blue"}}>Name: {p}</h2>
+       <strong>Comment :</strong><h3>{comments}</h3>
        <p>Time: {time}</p>
-    </div>
+    </Card>
   )
 }
 
 export default PatientReviews
+
+const Card = styled.div`
+   background-color: AliceBlue;
+   box-shadow: 4px 4px 8px 0px rgb(0, 0,0,0.2);
+  
+   text-align:center
+   text-decoration: none;
+ 
+   
+   a {
+    text-decoration: none;
+  }
+   
+
+   .img{
+    width: 300px;
+    height: 200px;
+    padding: 15px;
+    marging: 10px 
+   }
+
+`
