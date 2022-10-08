@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, useHistory  } from 'react-router-dom'
+import styled from "styled-components"
 
 const EditPatientForm = () => {
   const initialized = {
@@ -52,6 +53,7 @@ const EditPatientForm = () => {
   }
 
   return (
+       <Card>
         <form onSubmit={handleSubmitPatient}>
          <label>Name</label>
            <input
@@ -96,7 +98,34 @@ const EditPatientForm = () => {
            <input type="submit"></input>
      
          </form>
+         </Card>
        )
      }
 
 export default EditPatientForm
+
+const Card = styled.div`
+
+  font-family:'Open Sans Condensed', sans-serif;
+  text-transform:uppercase;
+  outline:none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	background-color: #5C8CA7;
+	padding: 10px;
+	color: white;
+	border: 1px solid #3498db;
+	border-radius: 3px;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-top: 5px;
+	cursor: pointer;
+  position:relative;
+  top:0;
+  width:100%;
+	padding:5px;
+
+`
