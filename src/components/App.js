@@ -10,6 +10,7 @@ import ReviewContainer from "./ReviewContainer";
 import ReviewForm from "./ReviewForm";
 import EditPatientForm from "./EditPatientForm";
 import Navbar from "./Navbar";
+import styled,{ThemeProvider} from "styled-components";
 
 
 
@@ -80,6 +81,7 @@ function App() {
   }
 
   return (
+    <ThemeProvider theme={theme}>
     <div>
       <Navbar/>
       <Home/>
@@ -113,7 +115,15 @@ function App() {
         </Route>
       </Switch>
     </div>
+    </ThemeProvider>
   );
 }
 
 export default App;
+
+const themec= {
+  font:{
+    primary: "'Dancing Script', cursive",
+    secondary: "'Roboto', sans-serif"
+  }
+}
