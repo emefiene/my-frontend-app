@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import styled from "styled-components"
 
 
 const Appointments = ({appointmentObj:{patient_id,physician_id, date}}) => {
@@ -40,13 +41,23 @@ const Appointments = ({appointmentObj:{patient_id,physician_id, date}}) => {
  })
   
   return (
-    <div>
-     <h1>Dr :{x}</h1><h4>Specialty :{y}</h4>
+    <Card>
+     <h2 style={{color: "blue"}}>Dr :{x}</h2><h4>Specialty :{y}</h4>
 
-      <h4>Patient Name: {p}</h4>
+      <h4 style={{color: "red"}}>Patient Name: {p}</h4>
       <h3>{date}</h3>
-    </div>
+    </Card>
   )
 }
 
 export default Appointments
+
+const Card = styled.div`
+  background-color: AliceBlue;
+  box-shadow: 4px 4px 8px 0px rgb(0, 0,0,0.2);
+  text-decoration: none;
+ 
+  
+
+
+`

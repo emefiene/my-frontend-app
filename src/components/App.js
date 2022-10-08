@@ -121,7 +121,7 @@ function App() {
 
 export default App;
 
-const themec= {
+const theme= {
   font:{
     primary: "'Dancing Script', cursive",
     secondary: "'Roboto', sans-serif"
