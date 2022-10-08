@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 
 const PatientReviews = ({reviewObj:{comments,time,patient_id}}) => {
-
+  
  const [patientsData, setPatientsData] = useState([])
 
  useEffect(() => {
@@ -23,7 +23,7 @@ const PatientReviews = ({reviewObj:{comments,time,patient_id}}) => {
 
   return(
     <Card>
-       <h2 style={{color: "blue"}}>Name: {p}</h2>
+       <h3  style={{color: "blue"}}>Name: {p}</h3>
        <strong>Comment :</strong><h3>{comments}</h3>
        <p>Time: {time}</p>
     </Card>
