@@ -4,14 +4,14 @@ import styled from "styled-components"
 const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}) => {
  return (
    <Card>
-    <img className='img' src='https://blog.ipleaders.in/wp-content/uploads/2020/07/960x0.jpg' alt='logo'></img>
-    <h3 style={{textAlign: "center"}}>Care That Makes A Difference.</h3>
-    <h2 style={{textAlign: "center"}} >New Patient.</h2>
-    <div id="formContainer">
-   <form id="formC" onSubmit={handleSubmitPatient}>
-   <div class="rows">
-   <div class="column">
-    <label class="theLabels">Name:</label>
+      <img className='img' src='https://blog.ipleaders.in/wp-content/uploads/2020/07/960x0.jpg' alt='logo'></img>
+      <h3 style={{textAlign: "center"}}>Care That Makes A Difference.</h3>
+       <h2 style={{textAlign: "center"}} >New Patient.</h2>
+      <div id="formContainer">
+     <form id="formC" onSubmit={handleSubmitPatient}>
+       <div class="rows">
+       <div class="column">
+       <label class="theLabels">Name:</label>
       <input class="theInputs"
        type="text"
        name="name"

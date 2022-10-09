@@ -86,18 +86,18 @@ function App() {
     <div>
       <Navbar/>
       <Switch>
-      <Route exact path="/">
-      <Home />
+       <Route exact path="/">
+        <Home />
      </Route>
        <Route exact path="/form">
       <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
       </Route>
          <Route exact path="/review/:patientId/post">
       <ReviewForm />
-     </Route>
+      </Route>
         <Route exact path="/edit/patients/:id">
           <EditPatientForm/>
-     </Route>
+      </Route>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>
         </Route>

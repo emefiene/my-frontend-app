@@ -37,35 +37,32 @@ const ReviewForm = () => {
   
 
   return (
-      <div>
-      <Card>
-      <img className='img' src='https://plos.org/wp-content/uploads/2020/05/Person-writing-by-laptop_Pixabay_CC0-e1512515354936.jpg' alt='logo'></img>
-   
-       
-      
-         <h2 style={{textAlign: "center"}}>Your feed back is important to us.. </h2>
-      <form className='form' onSubmit={handleSubmitReview}>
-          <label>Time</label>
-          <input
-            className='time'
-            type="datetime-local"
-            name = "time"
-            aria-label='time'
-            value={reviewData.time}
-            onChange={handleChange}
-          ></input>
-         <label>Comment</label>
-          <textarea
-            className='input'
-            name = "comments"
-            aria-label='comments'
-            value={reviewData.comments}
-            onChange={handleChange}
-          ></textarea>
-          <input className="sub" type="submit"/>
-      </form>
-      </Card>
-      </div>
+     <div>
+          <Card>
+               <img className='img' src='https://plos.org/wp-content/uploads/2020/05/Person-writing-by-laptop_Pixabay_CC0-e1512515354936.jpg' alt='logo'></img>
+               <h2 style={{textAlign: "center"}}>Your feed back is important to us.. </h2>
+              <form className='form' onSubmit={handleSubmitReview}>
+                  <label>Time</label>
+                  <input
+                      className='time'
+                      type="datetime-local"
+                      name = "time"
+                      aria-label='time'
+                      value={reviewData.time}
+                      onChange={handleChange}
+                  ></input>
+                  <label>Comment</label>
+                  <textarea
+                      className='input'
+                      name = "comments"
+                      aria-label='comments'
+                      value={reviewData.comments}
+                      onChange={handleChange}
+                  ></textarea>
+                  <input className="sub" type="submit"/>
+               </form>
+           </Card>
+    </div>
   )
 }
 

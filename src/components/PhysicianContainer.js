@@ -5,9 +5,9 @@ import styled from 'styled-components'
 const PhysicianContainer = ({physiciansData}) => {
   return (
     <div>
-    <CategoryStyle style={{display: "flex"}}>
-    {physiciansData.map((physiciansObj,index) => <PhysiciansList physiciansObj={physiciansObj} key={index}/>)}
-    </CategoryStyle>
+      <CategoryStyle style={{display: "flex"}}>
+        {physiciansData.map((physiciansObj,index) => <PhysiciansList physiciansObj={physiciansObj} key={index}/>)}
+      </CategoryStyle>
     </div>
   )
 }
