@@ -11,6 +11,7 @@ import ReviewForm from "./ReviewForm";
 import EditPatientForm from "./EditPatientForm";
 import Navbar from "./Navbar";
 import styled,{ThemeProvider} from "styled-components";
+import Footer from "./Footer";
 
 
 
@@ -116,6 +117,7 @@ function App() {
           <PatientDetails/>
         </Route>
       </Switch>
+      <Footer/>
     </div>
     </ThemeProvider>
   );
