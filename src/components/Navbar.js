@@ -1,18 +1,39 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Appointments from './Appointments'
+import styledComponents from 'styled-components'
 
 
 const Navbar = () => {
   return (
-    <div>
-       <NavLink to="/">Home</NavLink>
-       <NavLink to="/physicians">Physicians</NavLink>
-       <NavLink to="/patients">Patients</NavLink>
-       <NavLink to="/appointment">Appointments</NavLink>
-       <NavLink to="/form">New Patients</NavLink>
-       <NavLink to="/reviews">Reviews</NavLink>
-    </div>
+    <Head style={{ display:"flex"}}>
+       <NavLink to="/"><h2>Home</h2></NavLink>
+       <NavLink to="/physicians"><h2>Physicians</h2></NavLink>
+       <NavLink to="/patients"><h2>Patients</h2></NavLink>
+       <NavLink to="/appointment"><h2>Appointments</h2></NavLink>
+       <NavLink to="/form"><h2>New Patients</h2></NavLink>
+       <NavLink to="/reviews"><h2>Reviews</h2></NavLink>
+    </Head>
   )
 }
 
 export default Navbar
+const Head = styledComponents.div`
+  
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  background-color:Aquamarine;
+   div{
+     border-right: 1px solid;
+     paddingg-left: 2em;
+     padding-right: 2em
+   }
+
+   div:last-child{
+     border:none
+   }
+`
+
+  
+

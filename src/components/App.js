@@ -84,8 +84,10 @@ function App() {
     <ThemeProvider theme={theme}>
     <div>
       <Navbar/>
-      <Home/>
       <Switch>
+      <Route exact path="/">
+      <Home />
+     </Route>
        <Route exact path="/form">
       <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
       </Route>

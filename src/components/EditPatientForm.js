@@ -53,51 +53,67 @@ const EditPatientForm = () => {
   }
 
   return (
-       <Card>
-        <form onSubmit={handleSubmitPatient}>
-         <label>Name</label>
-           <input
+       <Card className='id'>
+       <img  className='img' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSO8H7u0mrBCFOCv-zep_bhb2sKFGWHXH5HQ&usqp=CAU' alt='logo'></img>
+       <div id="formContainer">
+       <form id="formC" onSubmit={handleSubmitPatient}>
+       <div class="rows">
+       <div class="column">
+         <label class="theLabels">Name</label>
+           <input class="theInputs" 
             type="text"
             name="name"
             aria-label="first_name"
             value={editPatientData.name}
             onChange={handleChangePatientForm}
            ></input>
-           <label>E-mail</label>
-           <input
+           </div>
+           <div class="column">
+           <label class="theLabels">E-mail</label>
+           <input class="theInputs" 
             type="text"
             name="email"
             aria-label="email"
             value={editPatientData.email}
             onChange={handleChangePatientForm}
            ></input>
-           <label>Address</label>
-           <input
+           </div>
+           <div class="column">
+           <label class="theLabels">Address</label>
+           <input class="theInputs" 
             type="text"
             name="address"
             aria-label="address"
             value={editPatientData.address}
             onChange={handleChangePatientForm}
            ></input>
-           <label>Age</label>
-           <input
+           </div>
+           <div class="column">
+           <label class="theLabels">Age</label>
+           <input class="theInputs" 
             type="text"
             name="age"
             aria-label="age"
             value={editPatientData.age}
             onChange={handleChangePatientForm}
            ></input>
-           <label>Phone</label>
-           <input
+           </div>
+           <div class="column">
+           <label class="theLabels">Phone</label>
+           <input class="theInputs" 
             type="text"
             name="phone"
             aria-label="phone"
             value={editPatientData.phone}
             onChange={handleChangePatientForm}
            ></input>
-           <input type="submit"></input>
-     
-         </form>
+           </div>
+           <div class="column">
+           <input className="sub" type="submit"></input>
+           </div>
+           </div>
+           </form>
+         </div>
          </Card>
        )
      }
@@ -105,27 +121,45 @@ const EditPatientForm = () => {
 export default EditPatientForm
 
 const Card = styled.div`
+   background-color: AliceBlue;
+   box-shadow: 4px 4px 8px 0px rgb(0, 0,0,0.2);
 
-  font-family:'Open Sans Condensed', sans-serif;
-  text-transform:uppercase;
-  outline:none;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-	background-color: #5C8CA7;
-	padding: 10px;
-	color: white;
-	border: 1px solid #3498db;
-	border-radius: 3px;
-	font-size: 1.5em;
-	font-weight: bold;
-	margin-top: 5px;
-	cursor: pointer;
-  position:relative;
-  top:0;
-  width:100%;
-	padding:5px;
 
+
+  .img{
+    width: 1000px;
+    height: 500px;
+    padding: 15px;
+    marging: 10px 
+    display: flex;
+    margin-left: 400px;
+   
+   }
+  
+   }
+ 
+   .sub:hover {
+    box-shadow: 0 0 10px #0099ff;
+    font-weight: bold;
+    color: black;
+    
+    }
+    .sub{
+      width: 200px;
+      line-height:100px;
+      margin-bottom: 350px; 
+      margin-left: 132px;
+  }
+  #formContainer{
+    width:40%;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+ 
+  }
+  #formC{
+    width:100%;
+  }
+ 
+  
 `
