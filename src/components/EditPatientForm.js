@@ -55,6 +55,7 @@ const EditPatientForm = () => {
   return (
        <Card className='id'>
        <img  className='img' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSO8H7u0mrBCFOCv-zep_bhb2sKFGWHXH5HQ&usqp=CAU' alt='logo'></img>
+       <h1 style={{textAlign: "center"}}>Update Your Information</h1>
        <div id="formContainer">
        <form id="formC" onSubmit={handleSubmitPatient}>
        <div class="rows">
