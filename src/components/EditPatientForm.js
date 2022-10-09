@@ -160,6 +160,26 @@ const Card = styled.div`
   #formC{
     width:100%;
   }
- 
+  .rows{
+    width:100%;
+    display:block;
+  
+  }
+  .column{
+      width:100%;
+      display:inline-block;
+      
+  }
+  .theLabels{
+    
+    width:30%
+    float:left;
+  }
+  .theInputs{
+    
+  
+    width:80%;
+    float:right;
+  }
   
 `
