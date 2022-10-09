@@ -4,12 +4,14 @@ import styled from "styled-components"
 const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}) => {
  return (
    <Card>
-    <img src='https://blog.ipleaders.in/wp-content/uploads/2020/07/960x0.jpg' alt='logo'></img>
+    <img className='img' src='https://blog.ipleaders.in/wp-content/uploads/2020/07/960x0.jpg' alt='logo'></img>
+    <h3 style={{textAlign: "center"}}>Care That Makes A Difference.</h3>
+    <h2 style={{textAlign: "center"}} >New Patient.</h2>
     <div id="formContainer">
    <form id="formC" onSubmit={handleSubmitPatient}>
    <div class="rows">
    <div class="column">
-    <label class="theLabels">Name</label>
+    <label class="theLabels">Name:</label>
       <input class="theInputs"
        type="text"
        name="name"
@@ -19,7 +21,7 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
       ></input>
       </div>
       <div class="column">
-      <label class="theLabels">E-mail</label>
+      <label class="theLabels">E-mail:</label>
       <input class="theInputs"
        type="text"
        name="email"
@@ -29,7 +31,7 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
       ></input>
       </div>
       <div class="column">
-      <label class="theLabels">Address</label>
+      <label class="theLabels">Address:</label>
       <input class="theInputs"
        type="text"
        name="address"
@@ -39,7 +41,7 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
       ></input>
       </div>
       <div class="column">
-      <label class="theLabels">Age</label>
+      <label class="theLabels">Age:</label>
       <input class="theInputs"
        type="number"
        name="age"
@@ -49,7 +51,7 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
       ></input>
       </div>
       <div class="column">
-      <label class="theLabels">Phone</label>
+      <label class="theLabels">Phone:</label>
       <input class="theInputs"
        type="number"
        name="phone"
@@ -57,7 +59,9 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
        value={patientForm.phone}
        onChange={handleChangePatientForm}
       ></input>
+      <div class="column">
       <input className="sub" type="submit"></input>
+      </div>
       </div>
       </div>
     </form>
@@ -132,8 +136,18 @@ const Card = styled.div`
       width: 200px;
       line-height:100px;
       margin-bottom: 35px; 
-      margin-left: 132px;
+      margin-left: 275px;
   }
+
+  .img{
+    width: 1000px;
+    height: 500px;
+    padding: 15px;
+    marging: 10px 
+    display: flex;
+    margin-left: 400px;
+   
+   }
 
 `
 
