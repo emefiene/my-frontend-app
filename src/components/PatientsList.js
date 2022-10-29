@@ -11,7 +11,7 @@ const PatientsList = ({patientsObj:{address,age,email,name,phone,symptoms},patie
        <p>{address}</p>
        <h4>{email}</h4>
        <p>{phone}</p>
-       <Link to={`patients/${patientsObj.id}`}><h2>Click</h2></Link>
+       <Link to={`patients/${patientsObj.id}`}><h2>Click for Details</h2></Link>
 
 
     </Card>

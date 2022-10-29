@@ -44,14 +44,12 @@ const PatientDetails = ({}) => {
         <p>{patientsDetail.phone}</p>
         <button onClick={handleDelete}>Delete</button>
         <Link to={`/edit/patients/${patientsDetail.id}`}><button>Update Your information</button></Link>
-
         <Link to={`/review/${itemsId}/post`}><button>Write Review</button></Link>
-        <Link to={`/appointment/${patientsDetail.id}/schedule`}><button>Appointment</button></Link>
+        <Link to={`/appointment/${patientsDetail.id}/schedule`}><button>Schedule Appointment</button></Link>
     </Card>
   )
 }
-// <Route exact path="/appointment/:patientId/schedule"></Route>
-// <Route exact path="/review/:patientId/post"></Route>
+
 export default PatientDetails
 
 const Card = styled.div`
