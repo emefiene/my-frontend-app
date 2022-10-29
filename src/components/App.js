@@ -12,6 +12,7 @@ import EditPatientForm from "./EditPatientForm";
 import Navbar from "./Navbar";
 import styled,{ThemeProvider} from "styled-components";
 import Footer from "./Footer";
+import AppointmentForm from "./AppointmentForm";
 
 
 
@@ -95,6 +96,9 @@ function App() {
          <Route exact path="/review/:patientId/post">
       <ReviewForm />
       </Route>
+      <Route exact path="/appointment/:patientId/schedule">
+        <AppointmentForm />
+        </Route>
         <Route exact path="/edit/patients/:id">
           <EditPatientForm/>
       </Route>

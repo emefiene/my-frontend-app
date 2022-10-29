@@ -5,6 +5,7 @@ import styled from "styled-components"
 const Appointments = ({appointmentObj:{date, patient,physician}}) => {
 
 
+
   
   return (
     <Card>
