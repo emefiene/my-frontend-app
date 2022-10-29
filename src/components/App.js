@@ -22,7 +22,6 @@ function App() {
     email: "",
     address: "",
     age: "",
-    phone: "",
     
   }
 
@@ -33,7 +32,7 @@ function App() {
   const [patientForm, setPatientForm] = useState(initialized)
   const [reviews, setReviews] = useState([])
   
-  
+  const history = useHistory()
 
   useEffect(() => {
     fetch("http://localhost:9292/physicians")
@@ -80,6 +79,7 @@ function App() {
         setPhysiciansData([data,...physiciansData])
       })
       setPatientForm(initialized)
+      history.push("/patients")
   }
 
   return (

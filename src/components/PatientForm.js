@@ -21,12 +21,12 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
       ></input>
       </div>
       <div class="column">
-      <label class="theLabels">E-mail:</label>
+      <label class="theLabels">Age:</label>
       <input class="theInputs"
-       type="text"
-       name="email"
-       aria-label="email"
-       value={patientForm.email}
+       type="number"
+       name="age"
+       aria-label="age"
+       value={patientForm.age}
        onChange={handleChangePatientForm}
       ></input>
       </div>
@@ -41,24 +41,16 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
       ></input>
       </div>
       <div class="column">
-      <label class="theLabels">Age:</label>
+      <label class="theLabels">E-mail:</label>
       <input class="theInputs"
-       type="number"
-       name="age"
-       aria-label="age"
-       value={patientForm.age}
+       type="text"
+       name="email"
+       aria-label="email"
+       value={patientForm.email}
        onChange={handleChangePatientForm}
       ></input>
       </div>
       <div class="column">
-      <label class="theLabels">Phone:</label>
-      <input class="theInputs"
-       type="number"
-       name="phone"
-       aria-label="phone"
-       value={patientForm.phone}
-       onChange={handleChangePatientForm}
-      ></input>
       <div class="column">
       <input className="sub" type="submit"></input>
       </div>

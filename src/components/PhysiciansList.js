@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from "styled-components"
 
-const PhysiciansList = ({physiciansObj:{name,phone,specialty,image_url}}) => {
+const PhysiciansList = ({physiciansObj:{name,specialty,image_url}}) => {
     
   return (
     <Card>
       <img className='img' src={image_url} alt="logo"/>
       <h2>{name}</h2>
       <h4>{specialty}</h4>
-      <p>{phone}</p>
     </Card>
   )
 }

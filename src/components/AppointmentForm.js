@@ -4,12 +4,12 @@ import { useParams ,useHistory } from 'react-router-dom'
 const AppointmentForm = () => {
     const [data, setData] = useState({
         date: "",
-        patient_id: ""
+        physician_id: ""
     });
 
     const {patientId} = useParams()
 
-    // const Id = useParams().id
+    const history = useHistory()
 
     const handleChange = (e) => {
         setData({...data,[e.target.name]:e.target.value})
@@ -25,7 +25,7 @@ const AppointmentForm = () => {
           },
           body: JSON.stringify(data)
         })
-        history.push("/reviews")
+        history.push("/appointment")
     
     }
 
@@ -43,12 +43,12 @@ const AppointmentForm = () => {
            ></input>
          <label></label>
            <select
-             name="patient_id"
+             name="physician_id"
              onChange={handleChange}
-             value={setData.patient_id}
+             value={setData.physician_id}
             >
            <option defaultValue="physician_id">Select Physician</option>
-           <option value="1">Dr. Pius Emefiene</option>
+           <option value= "1">Dr. Pius Emefiene</option>
            <option value="2">Dr. Gerald Michael</option>
            <option value="3">Dr. Alexander Ikemba</option>
            <option value="4">Dr. Naomi Chidera</option>
