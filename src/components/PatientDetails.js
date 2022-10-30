@@ -28,7 +28,6 @@ const PatientDetails = ({}) => {
         fetch(`http://localhost:9292/patients/${patientsDetail.id}`,{
           method: "DELETE"
         })
-        .then(res => res.json)
         .then(detelePatient => {
             setPatientsDetail(detelePatient)
             history.push("/patients")
@@ -39,18 +38,18 @@ const PatientDetails = ({}) => {
     <Card>
         <h2>Name:</h2>
         <p>{patientsDetail.name}</p>
-        <h3>E-mail:</h3>
+        <h4>E-mail:</h4>
         <p>{patientsDetail.email}</p>
-        <h3>Address:</h3>
+        <h4>Address:</h4>
         <p>{patientsDetail.address}</p>
-        <h3>Age:</h3>
+        <h4>Age:</h4>
         <p>{patientsDetail.age}</p>
-        <h3>Phone:</h3>
+        <h4>Phone:</h4>
         <p>{patientsDetail.phone}</p>
         <button><Link to={`/edit/patients/${patientsDetail.id}`}>Update Your information</Link></button>
         <button><Link to={`/appointment/${patientsDetail.id}/schedule`}>Schedule Appointment</Link></button>
         <button><Link to={`/review/${itemsId}/post`}>Write Review</Link></button>
-        <button onClick={handleDelete}><Link>Delete</Link></button>
+        <button onClick={handleDelete}>Delete</button>
         
     </Card>
   )

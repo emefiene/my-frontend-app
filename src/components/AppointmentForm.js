@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import { useParams ,useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -30,10 +31,13 @@ const AppointmentForm = () => {
     
     }
 
+   
+
   return (
-    <div >
-      <form onSubmit={handleSubmitAppointment}>
-          <label>Date</label>
+    <div className='App'>
+      <h2 style={{ color: "red", textAlign: "center"}}>Schedule Your Appointment</h2>
+      <Form onSubmit={handleSubmitAppointment}>
+          <label><h3 style={{color:"gray"}}>Appointment Date</h3></label>
             <input
                 className='date'
                 type="datetime-local"
@@ -42,7 +46,8 @@ const AppointmentForm = () => {
                 onChange={handleChange}
                 value={setData.date}
            ></input>
-         <label></label>
+           <br></br>
+         <label><h3 style={{color:"gray"}}>Select Physician</h3></label>
            <select
              name="physician_id"
              onChange={handleChange}
@@ -56,9 +61,27 @@ const AppointmentForm = () => {
            <option value="5">Dr. Legend Zion</option>
            </select>
            <input className="sub" type="submit"/>
-      </form>
+      </Form>
     </div>
   )
 }
 
 export default AppointmentForm
+  
+const Form = styled.form`
+display:flex;
+flex-direction:column;
+width: 400px;
+margin:auto;
+font-family:Arial;
+font-size:30px;
+input[type=submit]{
+  background-color:#42ddf5;
+  color: white;
+  height:40px;
+  font-family:Arial;
+  font-size:30px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+`
