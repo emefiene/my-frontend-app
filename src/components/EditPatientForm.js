@@ -12,7 +12,7 @@ const EditPatientForm = () => {
    
   }
      const [editPatientData, setEditPatientData] = useState(initialized)
-     const [editPatient, setEditPatient] = useState([])
+    //  const [editPatient, setEditPatient] = useState([])
 
      const history = useHistory()
 
@@ -28,7 +28,7 @@ const EditPatientForm = () => {
            
         })
 
-    }, [])
+      }, [])
     
     const handleChangePatientForm = (e) => {
       setEditPatientData({...editPatientData, [e.target.name]:e.target.value})
@@ -45,7 +45,7 @@ const EditPatientForm = () => {
       })
       .then(res => res.json())
       .then(data => {
-       setEditPatient(data)
+       setEditPatientData(data)
        history.push("/patients")
          
       })
