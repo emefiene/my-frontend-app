@@ -100,16 +100,6 @@ const EditPatientForm = () => {
            ></input>
            </div>
            <div class="column">
-           <label class="theLabels">Phone</label>
-           <input class="theInputs" 
-            type="text"
-            name="phone"
-            aria-label="phone"
-            value={editPatientData.phone}
-            onChange={handleChangePatientForm}
-           ></input>
-           </div>
-           <div class="column">
            <input className="sub" type="submit"></input>
            </div>
            </div>
