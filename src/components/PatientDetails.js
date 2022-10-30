@@ -47,10 +47,11 @@ const PatientDetails = ({}) => {
         <p>{patientsDetail.age}</p>
         <h3>Phone:</h3>
         <p>{patientsDetail.phone}</p>
-        <button onClick={handleDelete}><Link>Delete</Link></button>
         <button><Link to={`/edit/patients/${patientsDetail.id}`}>Update Your information</Link></button>
-        <button><Link to={`/review/${itemsId}/post`}>Write Review</Link></button>
         <button><Link to={`/appointment/${patientsDetail.id}/schedule`}>Schedule Appointment</Link></button>
+        <button><Link to={`/review/${itemsId}/post`}>Write Review</Link></button>
+        <button onClick={handleDelete}><Link>Delete</Link></button>
+        
     </Card>
   )
 }

@@ -6,11 +6,10 @@ const PatientsList = ({patientsObj:{address,age,email,name,phone,symptoms},patie
     
   return (
     <Card>
-       <h3>{name}</h3>
-       <p>{age}</p>
-       <p>{address}</p>
-       <h4>{email}</h4>
-       <p>{phone}</p>
+       <h3>Name: {name}</h3>
+       <p>Age: {age}</p>
+       <p>Address: {address}</p>
+       <h4>E-mail: {email}</h4>
        <Link to={`patients/${patientsObj.id}`}><h2>Click for Details</h2></Link>
 
 
@@ -42,5 +41,12 @@ const Card = styled.div`
     padding: 15px;
     marging: 10px 
    }
+
+   
+  align-items: center;
+  a{
+    text-decoration: none;
+    font-family:Arial;
+  }
 
 `
