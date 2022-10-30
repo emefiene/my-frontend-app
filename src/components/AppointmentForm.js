@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useParams ,useHistory } from 'react-router-dom'
+import styled from 'styled-components'
 
 const AppointmentForm = () => {
     const [data, setData] = useState({
@@ -30,7 +31,7 @@ const AppointmentForm = () => {
     }
 
   return (
-    <div>
+    <div >
       <form onSubmit={handleSubmitAppointment}>
           <label>Date</label>
             <input
