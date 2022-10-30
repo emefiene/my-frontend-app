@@ -5,9 +5,9 @@ const PhysiciansList = ({physiciansObj:{name,specialty,image_url}}) => {
     
   return (
     <Card>
-      <img className='img' src={image_url} alt="logo"/>
-      <h2>{name}</h2>
-      <h4>{specialty}</h4>
+      <img src={image_url} alt="logo"/>
+      <h2> Name: {name}</h2>
+      <h4> Specialty: {specialty}</h4>
     </Card>
   )
 }
@@ -15,26 +15,31 @@ const PhysiciansList = ({physiciansObj:{name,specialty,image_url}}) => {
 export default PhysiciansList
 
 const Card = styled.div`
-   background-color: AliceBlue;
-   box-shadow: 4px 4px 8px 0px rgb(0, 0,0,0.2);
-   display:inline-block;
-   text-align:center
-   text-decoration: none;
- 
-   h4{
-    font-family: 'Dancing Script', cursive;
-   }
-   
-   a {
-    text-decoration: none;
-  }
-   
 
-   .img{
-    width: 300px;
-    height: 200px;
-    padding: 15px;
-    marging: 10px 
-   }
+display:flex;
+flex-direction:row;
+justify-content:start;
+font-family:Arial, sans-serif;
+margin:5px;
+&:hover {
+  transform: scale(1.15);
+  transform-origin: top left;
+}
+a{
+  text-decoration:none;
+  color:white;
+}
+img{
+  width: 180px;
+  margin-left:20%;
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, .9) 80%, transparent 100%);
+}
+position:relative;
+div{
+ position:absolute;
+
+}
+
+
 
 `

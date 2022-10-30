@@ -9,11 +9,16 @@ const Appointments = ({appointmentObj:{date, patient,physician}}) => {
   
   return (
     <Card>
-      <h2>Name: {patient.name}</h2>
-      <h4>Address:  {patient.address}</h4>
-      <h2>Name:  Dr. {physician.name}</h2>
-      <h4>Specialty:  {physician.specialty}</h4>
-      <h3>Date: {date}</h3>
+      <h3>Patient:</h3>
+      <p>{patient.name}</p>
+      <h3>Address:</h3>
+      <p>{patient.address}</p>
+      <h3>Physician:</h3>
+      <p>Dr. {physician.name}</p>
+      <h3>Specialty:</h3>
+      <p>{physician.specialty}</p>
+      <h3>Date:</h3>
+      <p> {date}</p>
     </Card>
   )
 }
@@ -26,6 +31,4 @@ const Card = styled.div`
   text-decoration: none;
  
   
-
-
 `
