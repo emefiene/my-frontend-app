@@ -3,7 +3,7 @@ import { useParams ,useHistory } from 'react-router-dom'
 import styled from "styled-components"
 
 
-const ReviewForm = () => {
+const ReviewForm = ({addReview}) => {
     const reviewInitial = {
         time:"",
         comments:"",
@@ -31,9 +31,12 @@ const ReviewForm = () => {
           },
           body: JSON.stringify(reviewData)
         })
+        .then(res => res.json())
+        .then(addReview)
         history.push("/reviews")
     
     }
+  
   
 
   return (

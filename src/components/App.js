@@ -121,7 +121,7 @@ const handleDeleteAppoint = (appointmentDele) => {
 
 }
 
- 
+const addReview = (review) => setReviews(current => [review, ...current])
  
   return (
     <ThemeProvider theme={theme}>
@@ -135,7 +135,7 @@ const handleDeleteAppoint = (appointmentDele) => {
       <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
       </Route>
          <Route exact path="/review/:patientId/post">
-      <ReviewForm />
+      <ReviewForm addReview={addReview}/>
       </Route>
       <Route exact path="/appointment/:patientId/schedule">
         <AppointmentForm />
