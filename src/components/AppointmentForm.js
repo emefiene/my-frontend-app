@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import { useParams ,useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-const AppointmentForm = () => {
+const AppointmentForm = ({addAppointmentSch}) => {
+
+    // const [appointment , setAppointment] = useState([])
     const [data, setData] = useState({
         date: "",
         physician_id: ""
@@ -11,13 +13,24 @@ const AppointmentForm = () => {
 
     const {patientId} = useParams()
 
+    // const Id = useParams().id
+
+  //   useEffect(() => {
+  //   fetch("http://localhost:9292/appointment")
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     setAppointment(data)
+  //   })
+  //  }, [])
+
     const history = useHistory()
 
     const handleChange = (e) => {
         setData({...data,[e.target.name]:e.target.value})
     }
-
-
+    
+    // const addAppointmentSch = (schedule) => setAppointment(current => [schedule, ...current])
+    
     const handleSubmitAppointment = (e) => {
         e.preventDefault()
         fetch(`http://localhost:9292/appointment/${patientId}/schedule`, {
@@ -27,7 +40,14 @@ const AppointmentForm = () => {
           },
           body: JSON.stringify(data)
         })
-        history.push("/patients")
+        .then(res => {
+          if(res.ok){
+            res.json().then({...addAppointmentSch, data})
+          }
+        })
+        // .then(res => res.json())
+        // .then(addAppointmentSch)
+         history.push("/appointment")
     
     }
 

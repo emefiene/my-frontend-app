@@ -43,24 +43,18 @@ function App() {
       setPhysiciansData(data)
     })
 
-
     fetch("http://localhost:9292/patients")
     .then(res => res.json())
     .then(setPatientsData)
-
-
-    fetch("http://localhost:9292/appointment")
-    .then(res => res.json())
-    .then(data => {
-      setAppointment(data)
-    })
 
     fetch("http://localhost:9292/review")
     .then(res => res.json())
     .then(data => {
       setReviews(data)
     })
-
+    fetch("http://localhost:9292/appointment")
+    .then(res => res.json())
+    .then(setAppointment)
   },[])
   
   const handleChangePatientForm = (e) => {
@@ -122,6 +116,8 @@ const handleDeleteAppoint = (appointmentDele) => {
 }
 
 const addReview = (review) => setReviews(current => [review, ...current])
+
+ const addAppointmentSch = (schedule) => setAppointment(current => [schedule, ...current])
  
   return (
     <ThemeProvider theme={theme}>
@@ -138,7 +134,7 @@ const addReview = (review) => setReviews(current => [review, ...current])
       <ReviewForm addReview={addReview}/>
       </Route>
       <Route exact path="/appointment/:patientId/schedule">
-        <AppointmentForm />
+        <AppointmentForm addAppointmentSch={addAppointmentSch} />
         </Route>
         <Route exact path="/edit/patients/:id">
           <EditPatientForm updatedProduction={updatedProduction} />
