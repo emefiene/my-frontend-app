@@ -34,6 +34,8 @@ function App() {
   
   const history = useHistory()
 
+  
+
   useEffect(() => {
     fetch("http://localhost:9292/physicians")
     .then(res => res.json())
@@ -41,18 +43,18 @@ function App() {
       setPhysiciansData(data)
     })
 
+
     fetch("http://localhost:9292/patients")
     .then(res => res.json())
-    .then(data => {
-      setPatientsData(data)
-    })
+    .then(setPatientsData)
+
 
     fetch("http://localhost:9292/appointment")
     .then(res => res.json())
     .then(data => {
       setAppointment(data)
     })
-  
+
     fetch("http://localhost:9292/review")
     .then(res => res.json())
     .then(data => {
@@ -64,6 +66,9 @@ function App() {
   const handleChangePatientForm = (e) => {
      setPatientForm({...patientForm, [e.target.name]:e.target.value})
   }
+
+  const addPatient = (patient) => setPatientsData(current => [...current, patient])
+ 
   
   const handleSubmitPatient = (e) => {
       e.preventDefault()
@@ -75,13 +80,35 @@ function App() {
         body: JSON.stringify(patientForm)
       })
       .then(res => res.json())
-      .then(data => {
-        setPhysiciansData([data,...physiciansData])
-      })
+      .then(addPatient)
       setPatientForm(initialized)
       history.push("/patients")
   }
 
+  const updatedProduction = (updatedProduction) => setPatientsData(data => {
+    return data.map(patientsData => {
+      if(patientsData.id === updatedProduction.id){
+        return updatedProduction
+      }else{
+        return patientsData
+      }
+    })
+  })
+  
+  const handleDelete = (patient) => {
+    fetch(`http://localhost:9292/patients/${patient.id}`,{
+      method: "DELETE",
+   
+    })
+    .then(() => {
+      const deletePatient = patientsData.filter(p => p.id !== patient.id)
+      setPatientsData(deletePatient)
+      history.push("/patients")
+    })
+
+} 
+ 
+ 
   return (
     <ThemeProvider theme={theme}>
     <div>
@@ -100,7 +127,7 @@ function App() {
         <AppointmentForm />
         </Route>
         <Route exact path="/edit/patients/:id">
-          <EditPatientForm/>
+          <EditPatientForm updatedProduction={updatedProduction} />
       </Route>
        <Route exact path="/physicians">
           <PhysicianContainer physiciansData={physiciansData}/>
@@ -115,11 +142,9 @@ function App() {
           <PatientContainer patientsData={patientsData}/>
         </Route>
         <Route exact path="/patients/:id">
-          <PatientDetails/>
+          <PatientDetails handleDelete={handleDelete} />
         </Route>
-        <Route exact path="/patients/edit/:id">
-          <PatientDetails/>
-        </Route>
+      
       </Switch>
       <Footer/>
     </div>

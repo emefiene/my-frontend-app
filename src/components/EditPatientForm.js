@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams, useHistory  } from 'react-router-dom'
 import styled from "styled-components"
 
-const EditPatientForm = () => {
+const EditPatientForm = ({updatedProduction}) => {
   const initialized = {
     name: "",
     email: "",
@@ -44,11 +44,8 @@ const EditPatientForm = () => {
         body: JSON.stringify(editPatientData)
       })
       .then(res => res.json())
-      .then(data => {
-       setEditPatientData(data)
+      .then( updatedProduction )
        history.push("/patients")
-         
-      })
       
   }
 

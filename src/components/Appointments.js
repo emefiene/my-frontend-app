@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import { useParams ,useHistory } from 'react-router-dom'
 
@@ -7,11 +7,14 @@ const Appointments = ({appointmentObj:{date, patient,physician},appointmentObj})
 
   const [appointmentData, setAppointmentData] = useState()
 
+  const history = useHistory()
+
    const handleDelete = () => {
     fetch(`http://localhost:9292/appointment/${appointmentObj.id}`,{
         method: "DELETE"
     })
     .then(data => setAppointmentData(data))
+    history.push("/")
   }
 
   return (

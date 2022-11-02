@@ -4,19 +4,18 @@
  import styled from "styled-components"
  
 
-const PatientDetails = ({}) => {
+const PatientDetails = ({handleDelete}) => {
   
     const [patientsDetail, setPatientsDetail] = useState([])
 
-    const itemsId = useParams().id
+    const params = useParams()
      
     const history = useHistory()
-
 
     
 
     useEffect(() => {
-        fetch(`http://localhost:9292/patients/${itemsId}`)
+        fetch(`http://localhost:9292/patients/${params.id}`)
         .then(res => res.json())
         .then(data => {
             setPatientsDetail(data)
@@ -24,15 +23,22 @@ const PatientDetails = ({}) => {
 
     }, [])
 
-    const handleDelete = () => {
-        fetch(`http://localhost:9292/patients/${patientsDetail.id}`,{
-          method: "DELETE"
-        })
-        .then(detelePatient => {
-            setPatientsDetail(detelePatient)
-            history.push("/patients")
-        })
-    }
+
+    // const handleDelete = () => {
+    //     fetch(`http://localhost:9292/patients/${params.id}`,{
+    //       method: "DELETE",
+       
+    //     })
+    //     .then(res => {
+    //      if(res.ok){
+    //        deletePatient(id)
+    //        history.push("/")
+    //      }
+          
+    //     })
+      
+        
+    // }
 
   return (
     <Card>
@@ -46,10 +52,10 @@ const PatientDetails = ({}) => {
         <p>{patientsDetail.age}</p>
         <h4>Phone:</h4>
         <p>{patientsDetail.phone}</p>
-        <button><Link to={`/edit/patients/${patientsDetail.id}`}>Update Your information</Link></button>
-        <button><Link to={`/appointment/${patientsDetail.id}/schedule`}>Schedule Appointment</Link></button>
-        <button><Link to={`/review/${itemsId}/post`}>Write Review</Link></button>
-        <button onClick={handleDelete}>Delete</button>
+        <button><Link to={`/edit/patients/${params.id}`}>Update Your information</Link></button>
+        <button><Link to={`/appointment/${params.id}/schedule`}>Schedule Appointment</Link></button>
+        <button><Link to={`/review/${params.id}/post`}>Write Review</Link></button>
+        <button onClick={() => handleDelete(patientsDetail)} style={{color: "blue"}}>Delete</button>
         
     </Card>
   )

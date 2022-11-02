@@ -27,7 +27,7 @@ const AppointmentForm = () => {
           },
           body: JSON.stringify(data)
         })
-        history.push("/appointment")
+        history.push("/patients")
     
     }
 
