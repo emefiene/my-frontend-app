@@ -3,19 +3,19 @@ import styled from "styled-components"
 import { useParams ,useHistory } from 'react-router-dom'
 
 
-const Appointments = ({appointmentObj:{date, patient,physician},appointmentObj}) => {
+const Appointments = ({appointmentObj:{date, patient,physician},appointmentObj,handleDeleteAppoint}) => {
 
   const [appointmentData, setAppointmentData] = useState()
 
-  const history = useHistory()
+  // const history = useHistory()
 
-   const handleDelete = () => {
-    fetch(`http://localhost:9292/appointment/${appointmentObj.id}`,{
-        method: "DELETE"
-    })
-    .then(data => setAppointmentData(data))
-    history.push("/")
-  }
+  //  const handleDelete = () => {
+  //   fetch(`http://localhost:9292/appointment/${appointmentObj.id}`,{
+  //       method: "DELETE"
+  //   })
+  //   .then(data => setAppointmentData(data))
+  //   history.push("/")
+  // }
 
   return (
     <Card>
@@ -29,7 +29,7 @@ const Appointments = ({appointmentObj:{date, patient,physician},appointmentObj})
       <p>{physician.specialty}</p>
       <h3>Date:</h3>
       <p> {date}</p>
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={() => handleDeleteAppoint(appointmentObj)}>Delete</button>
     </Card>
   )
 }

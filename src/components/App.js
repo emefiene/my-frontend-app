@@ -107,6 +107,20 @@ function App() {
     })
 
 } 
+
+
+const handleDeleteAppoint = (appointmentDele) => {
+ fetch(`http://localhost:9292/appointment/${appointmentDele.id}`,{
+     method: "DELETE"
+ })
+ .then(data => {
+   const deleteAppointment = appointment.filter(a => a.id !== appointmentDele.id)
+   setAppointment(deleteAppointment)
+   history.push("/appointment")
+ })
+
+}
+
  
  
   return (
@@ -133,7 +147,7 @@ function App() {
           <PhysicianContainer physiciansData={physiciansData}/>
         </Route>
         <Route exact path="/appointment">
-          <AppointmentContainer appointment={appointment} physiciansData={physiciansData}/> 
+          <AppointmentContainer appointment={appointment} physiciansData={physiciansData} handleDeleteAppoint={handleDeleteAppoint}/> 
         </Route>
         <Route exact path="/reviews">
           <ReviewContainer reviews={reviews}/>

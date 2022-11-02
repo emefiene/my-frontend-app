@@ -1,10 +1,10 @@
 import React from 'react'
 import Appointments from "./Appointments"
-const AppointmentContainer = ({appointment}) => {
+const AppointmentContainer = ({appointment,handleDeleteAppoint}) => {
 
   return (
     <div>
-    {appointment.map((appointmentObj,index) => <Appointments appointmentObj={appointmentObj} key={index} />)}
+    {appointment.map((appointmentObj,index) => <Appointments appointmentObj={appointmentObj} handleDeleteAppoint={handleDeleteAppoint} key={index} />)}
     </div>
   )
 }
