@@ -12,8 +12,7 @@ const EditPatientForm = ({updatedProduction}) => {
    
   }
      const [editPatientData, setEditPatientData] = useState(initialized)
-    //  const [editPatient, setEditPatient] = useState([])
-
+  
      const history = useHistory()
 
      const itemsId = useParams().id
@@ -55,10 +54,10 @@ const EditPatientForm = ({updatedProduction}) => {
        <h1 style={{textAlign: "center"}}>Update Your Information</h1>
        <div id="formContainer">
        <form id="formC" onSubmit={handleSubmitPatient}>
-       <div class="rows">
-       <div class="column">
-         <label class="theLabels">Name</label>
-           <input class="theInputs" 
+       <div className="rows">
+       <div className="column">
+         <label className="theLabels">Name</label>
+           <input className="theInputs" 
             type="text"
             name="name"
             aria-label="first_name"
@@ -66,9 +65,9 @@ const EditPatientForm = ({updatedProduction}) => {
             onChange={handleChangePatientForm}
            ></input>
            </div>
-           <div class="column">
-           <label class="theLabels">E-mail</label>
-           <input class="theInputs" 
+           <div className="column">
+           <label className="theLabels">E-mail</label>
+           <input className="theInputs" 
             type="text"
             name="email"
             aria-label="email"
@@ -76,9 +75,9 @@ const EditPatientForm = ({updatedProduction}) => {
             onChange={handleChangePatientForm}
            ></input>
            </div>
-           <div class="column">
-           <label class="theLabels">Address</label>
-           <input class="theInputs" 
+           <div className="column">
+           <label className="theLabels">Address</label>
+           <input className="theInputs" 
             type="text"
             name="address"
             aria-label="address"
@@ -86,9 +85,9 @@ const EditPatientForm = ({updatedProduction}) => {
             onChange={handleChangePatientForm}
            ></input>
            </div>
-           <div class="column">
-           <label class="theLabels">Age</label>
-           <input class="theInputs" 
+           <div className="column">
+           <label className="theLabels">Age</label>
+           <input className="theInputs" 
             type="text"
             name="age"
             aria-label="age"
@@ -96,7 +95,7 @@ const EditPatientForm = ({updatedProduction}) => {
             onChange={handleChangePatientForm}
            ></input>
            </div>
-           <div class="column">
+           <div className="column">
            <input className="sub" type="submit"></input>
            </div>
            </div>

@@ -7,6 +7,7 @@
 const PatientDetails = ({handleDelete}) => {
   
     const [patientsDetail, setPatientsDetail] = useState([])
+    const [reviewData, setReviewData] = useState([])
 
     const params = useParams()
      
@@ -19,39 +20,20 @@ const PatientDetails = ({handleDelete}) => {
         .then(res => res.json())
         .then(data => {
             setPatientsDetail(data)
+            setReviewData(data.reviews.map(res => res.comments ))
+       
+            
         })
 
     }, [])
-
-
-    // const handleDelete = () => {
-    //     fetch(`http://localhost:9292/patients/${params.id}`,{
-    //       method: "DELETE",
-       
-    //     })
-    //     .then(res => {
-    //      if(res.ok){
-    //        deletePatient(id)
-    //        history.push("/")
-    //      }
-          
-    //     })
-      
-        
-    // }
+    
 
   return (
     <Card>
         <h2>Name:</h2>
         <p>{patientsDetail.name}</p>
-        <h4>E-mail:</h4>
-        <p>{patientsDetail.email}</p>
-        <h4>Address:</h4>
-        <p>{patientsDetail.address}</p>
-        <h4>Age:</h4>
-        <p>{patientsDetail.age}</p>
-        <h4>Phone:</h4>
-        <p>{patientsDetail.phone}</p>
+         <h3>Reviews</h3>
+         {reviewData.map((r,index) => <li key={index}> <p> { r } </p> </li>)} 
         <button><Link to={`/edit/patients/${params.id}`}>Update Your information</Link></button>
         <button><Link to={`/appointment/${params.id}/schedule`}>Schedule Appointment</Link></button>
         <button><Link to={`/review/${params.id}/post`}>Write Review</Link></button>

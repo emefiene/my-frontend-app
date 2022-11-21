@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import Appointments from './Appointments'
 import styledComponents from 'styled-components'
 
 
@@ -8,11 +7,8 @@ const Navbar = () => {
   return (
     <Head style={{ display:"flex"}}>
        <NavLink to="/"><h2>Home</h2></NavLink>
-       <NavLink to="/physicians"><h2>Physicians</h2></NavLink>
        <NavLink to="/patients"><h2>Patients</h2></NavLink>
-       <NavLink to="/appointment"><h2>View Appointments</h2></NavLink>
        <NavLink to="/form"><h2>New Patients</h2></NavLink>
-       <NavLink to="/reviews"><h2>Reviews</h2></NavLink>
     </Head>
   )
 }

@@ -5,7 +5,6 @@ import styled from "styled-components"
 
 const ReviewForm = ({addReview}) => {
     const reviewInitial = {
-        time:"",
         comments:"",
       }
     
@@ -33,7 +32,7 @@ const ReviewForm = ({addReview}) => {
         })
         .then(res => res.json())
         .then(addReview)
-        history.push("/reviews")
+        history.push("/patients")
     
     }
   
@@ -45,15 +44,6 @@ const ReviewForm = ({addReview}) => {
                <img className='img' src='https://plos.org/wp-content/uploads/2020/05/Person-writing-by-laptop_Pixabay_CC0-e1512515354936.jpg' alt='logo'></img>
                <h2 style={{textAlign: "center"}}>Your feed back is important to us.. </h2>
               <form className='form' onSubmit={handleSubmitReview}>
-                  <label>Time</label>
-                  <input
-                      className='time'
-                      type="datetime-local"
-                      name = "time"
-                      aria-label='time'
-                      value={reviewData.time}
-                      onChange={handleChange}
-                  ></input>
                   <label>Comment</label>
                   <textarea
                       className='input'

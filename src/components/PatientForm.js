@@ -9,10 +9,10 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
        <h2 style={{textAlign: "center"}} >New Patient.</h2>
       <div id="formContainer">
      <form id="formC" onSubmit={handleSubmitPatient}>
-       <div class="rows">
+       <div className="rows">
        <div class="column">
-       <label class="theLabels">Name:</label>
-      <input class="theInputs"
+       <label className="theLabels">Name:</label>
+      <input className="theInputs"
        type="text"
        name="name"
        aria-label="name"
@@ -20,9 +20,9 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
        onChange={handleChangePatientForm}
       ></input>
       </div>
-      <div class="column">
-      <label class="theLabels">Age:</label>
-      <input class="theInputs"
+      <div className="column">
+      <label className="theLabels">Age:</label>
+      <input className="theInputs"
        type="number"
        name="age"
        aria-label="age"
@@ -30,9 +30,9 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
        onChange={handleChangePatientForm}
       ></input>
       </div>
-      <div class="column">
-      <label class="theLabels">Address:</label>
-      <input class="theInputs"
+      <div className="column">
+      <label className="theLabels">Address:</label>
+      <input className="theInputs"
        type="text"
        name="address"
        aria-label="address"
@@ -40,9 +40,9 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
        onChange={handleChangePatientForm}
       ></input>
       </div>
-      <div class="column">
-      <label class="theLabels">E-mail:</label>
-      <input class="theInputs"
+      <div className="column">
+      <label className="theLabels">E-mail:</label>
+      <input className="theInputs"
        type="text"
        name="email"
        aria-label="email"
@@ -50,8 +50,8 @@ const PatientForm = ({handleChangePatientForm, patientForm, handleSubmitPatient}
        onChange={handleChangePatientForm}
       ></input>
       </div>
-      <div class="column">
-      <div class="column">
+      <div className="column">
+      <div className="column">
       <input className="sub" type="submit"></input>
       </div>
       </div>

@@ -1,18 +1,15 @@
 import React, {useState, useEffect} from "react";
 import { Switch, useHistory, Route} from "react-router-dom";
 import Home from "./Home";
-import PhysicianContainer from "./PhysicianContainer";
 import PatientContainer from "./PatientContainer";
 import PatientDetails from "./PatientDetails";
 import PatientForm from "./PatientForm";
-import AppointmentContainer from "./AppointmentContainer";
-import ReviewContainer from "./ReviewContainer";
 import ReviewForm from "./ReviewForm";
 import EditPatientForm from "./EditPatientForm";
 import Navbar from "./Navbar";
 import styled,{ThemeProvider} from "styled-components";
 import Footer from "./Footer";
-import AppointmentForm from "./AppointmentForm";
+
 
 
 
@@ -26,9 +23,8 @@ function App() {
   }
 
 
-  const [physiciansData, setPhysiciansData] = useState([])
+
   const [patientsData, setPatientsData] = useState([])
-  const [appointment , setAppointment] = useState([])
   const [patientForm, setPatientForm] = useState(initialized)
   const [reviews, setReviews] = useState([])
   
@@ -37,24 +33,13 @@ function App() {
   
 
   useEffect(() => {
-    fetch("http://localhost:9292/physicians")
-    .then(res => res.json())
-    .then(data => {
-      setPhysiciansData(data)
-    })
-
     fetch("http://localhost:9292/patients")
     .then(res => res.json())
-    .then(setPatientsData)
-
-    fetch("http://localhost:9292/review")
-    .then(res => res.json())
     .then(data => {
+      setPatientsData(data)
       setReviews(data)
     })
-    fetch("http://localhost:9292/appointment")
-    .then(res => res.json())
-    .then(setAppointment)
+    
   },[])
   
   const handleChangePatientForm = (e) => {
@@ -103,21 +88,8 @@ function App() {
 } 
 
 
-const handleDeleteAppoint = (appointmentDele) => {
- fetch(`http://localhost:9292/appointment/${appointmentDele.id}`,{
-     method: "DELETE"
- })
- .then(data => {
-   const deleteAppointment = appointment.filter(a => a.id !== appointmentDele.id)
-   setAppointment(deleteAppointment)
-   history.push("/appointment")
- })
-
-}
-
 const addReview = (review) => setReviews(current => [review, ...current])
 
- const addAppointmentSch = (schedule) => setAppointment(current => [schedule, ...current])
  
   return (
     <ThemeProvider theme={theme}>
@@ -133,21 +105,9 @@ const addReview = (review) => setReviews(current => [review, ...current])
          <Route exact path="/review/:patientId/post">
       <ReviewForm addReview={addReview}/>
       </Route>
-      <Route exact path="/appointment/:patientId/schedule">
-        <AppointmentForm addAppointmentSch={addAppointmentSch} />
-        </Route>
         <Route exact path="/edit/patients/:id">
           <EditPatientForm updatedProduction={updatedProduction} />
       </Route>
-       <Route exact path="/physicians">
-          <PhysicianContainer physiciansData={physiciansData}/>
-        </Route>
-        <Route exact path="/appointment">
-          <AppointmentContainer appointment={appointment} physiciansData={physiciansData} handleDeleteAppoint={handleDeleteAppoint}/> 
-        </Route>
-        <Route exact path="/reviews">
-          <ReviewContainer reviews={reviews}/>
-        </Route>
         <Route exact path="/patients">
           <PatientContainer patientsData={patientsData}/>
         </Route>

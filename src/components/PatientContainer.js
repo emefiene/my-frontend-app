@@ -8,6 +8,7 @@ const PatientContainer = ({patientsData}) => {
     <div>
     
       {patientsData.map((patientsObj,index) => <PatientsList patientsObj={patientsObj} key={index}/>)}
+      
     
     </div>
   )
