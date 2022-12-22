@@ -4,47 +4,28 @@
  import styled from "styled-components"
  
 
-const PatientDetails = ({handleDelete}) => {
+const PatientDetails = ({data}) => {
+   
+
+    const {id} = useParams()
   
-    const [patientsDetail, setPatientsDetail] = useState([])
-    const [reviewData, setReviewData] = useState([])
-
-    const params = useParams()
-     
-    const history = useHistory()
-
-    
-
-    useEffect(() => {
-        fetch(`http://localhost:9292/patients/${params.id}`)
-        .then(res => res.json())
-        .then(data => {
-            setPatientsDetail(data)
-            setReviewData(data.reviews.map(res => res.comments ))
-       
-            
-        })
-
-    }, [])
-    
 
   return (
     <Card>
         <h2>Name:</h2>
-        <p>{patientsDetail.name}</p>
-         <h3>Reviews</h3>
-         {reviewData.map((r,index) => <li key={index}> <p> { r } </p> </li>)} 
-        <button><Link to={`/edit/patients/${params.id}`}>Update Your information</Link></button>
-        <button><Link to={`/appointment/${params.id}/schedule`}>Schedule Appointment</Link></button>
-        <button><Link to={`/review/${params.id}/post`}>Write Review</Link></button>
-        <button onClick={() => handleDelete(patientsDetail)} style={{color: "blue"}}>Delete</button>
-        
+        <p>{data.map(res => { if(res.id == id){ return res.name}})}</p>
+        <h3>Reviews</h3>
+        {data.map((res) => { if(res.id == id){
+        return res.reviews.map((r, index) => (<li key={index} > <p>{r.comments}</p> </li> ))}})}
+        <button><Link to={`/edit/patients/${id}`}>Update Your information</Link></button>
+        <button><Link to={`/review/${id}`}>Write Review</Link></button>
     </Card>
   )
 }
 
 
 export default PatientDetails
+
 
 const Card = styled.div`
   

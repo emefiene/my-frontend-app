@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from "styled-components"
 
-const PatientsList = ({patientsObj:{address,age,email,name},patientsObj}) => {
+const PatientsList = ({patientsObj:{address,age,email,name},patientsObj,handleDelete}) => {
     
   return (
     <Card>
@@ -10,6 +10,7 @@ const PatientsList = ({patientsObj:{address,age,email,name},patientsObj}) => {
        <p>Age: {age}</p>
        <p>Address: {address}</p>
        <h4>E-mail: {email}</h4>
+       <button onClick={() => handleDelete(patientsObj)} style={{color: "blue"}}>Delete</button>
        <Link to={`patients/${patientsObj.id}`}><h2>Click for Details</h2></Link>
   
     </Card>

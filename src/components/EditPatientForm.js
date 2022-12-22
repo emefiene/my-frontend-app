@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { useParams, useHistory  } from 'react-router-dom'
 import styled from "styled-components"
 
-const EditPatientForm = ({updatedProduction}) => {
+
+const EditPatientForm = ({updatedProduction, patientsData}) => {
   const initialized = {
     name: "",
     email: "",
@@ -17,20 +18,17 @@ const EditPatientForm = ({updatedProduction}) => {
 
      const itemsId = useParams().id
 
-      
-      
       useEffect(() => {
-        fetch(`http://localhost:9292/patients/${itemsId}`)
-        .then(res => res.json())
-        .then(data => {
-           setEditPatientData(data)
-           
+       patientsData.map(patient => {
+          if(patient.id == itemsId){
+             setEditPatientData({...patient})
+          }
         })
-
       }, [])
-    
+
+      
     const handleChangePatientForm = (e) => {
-      setEditPatientData({...editPatientData, [e.target.name]:e.target.value})
+      setEditPatientData( {...editPatientData,[e.target.name]:e.target.value})
    }
 
     const handleSubmitPatient = (e) => {

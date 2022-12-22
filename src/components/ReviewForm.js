@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import { useParams ,useHistory } from 'react-router-dom'
 import styled from "styled-components"
 
 
-const ReviewForm = ({addReview}) => {
+const ReviewForm = ({UpdateReview}) => {
     const reviewInitial = {
         comments:"",
       }
     
+      
     const [reviewData, setReviewData] = useState(reviewInitial)
-    
-    
-    const {patientId} = useParams()
 
-    const Id = useParams().id
+    const {Id} = useParams()
 
     const history = useHistory()
     
@@ -21,9 +19,11 @@ const ReviewForm = ({addReview}) => {
         setReviewData({...reviewData,[e.target.name]:e.target.value})
      }
 
+    
+
     const handleSubmitReview = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:9292/review/${patientId}/post`, {
+        fetch(`http://localhost:9292/review/${Id}`, {
           method: "POST",
           headers:{
             "content-type":"application/json"
@@ -31,7 +31,7 @@ const ReviewForm = ({addReview}) => {
           body: JSON.stringify(reviewData)
         })
         .then(res => res.json())
-        .then(addReview)
+        .then(UpdateReview)
         history.push("/patients")
     
     }

@@ -1,14 +1,12 @@
 import React from 'react'
 import PatientsList from './PatientsList'
 
-
-const PatientContainer = ({patientsData}) => {
+const PatientContainer = ({patientsData, handleDelete}) => {
  
   return (
     <div>
     
-      {patientsData.map((patientsObj,index) => <PatientsList patientsObj={patientsObj} key={index}/>)}
-      
+      {patientsData.map((patientsObj,index) => <PatientsList patientsObj={patientsObj} handleDelete={handleDelete} key={index}/>)}
     
     </div>
   )

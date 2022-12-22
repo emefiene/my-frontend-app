@@ -12,7 +12,6 @@ import Footer from "./Footer";
 
 
 
-
 function App() {
   const initialized = {
     name: "",
@@ -24,10 +23,13 @@ function App() {
 
 
 
-  const [patientsData, setPatientsData] = useState([])
-  const [patientForm, setPatientForm] = useState(initialized)
-  const [reviews, setReviews] = useState([])
   
+  const [patientForm, setPatientForm] = useState(initialized)
+  const [data, setData] = useState([])
+  const [patientsData, setPatientsData] = useState([])
+  const [ptReviews, setPtReviews] = useState([])
+  const [updateReview, setUpdateReview] = useState([])
+
   const history = useHistory()
 
   
@@ -37,18 +39,23 @@ function App() {
     .then(res => res.json())
     .then(data => {
       setPatientsData(data)
-      setReviews(data)
+      setPtReviews(data)
+      setData(data)
+      
+    
     })
     
-  },[])
+  }, [updateReview])
   
+
   const handleChangePatientForm = (e) => {
      setPatientForm({...patientForm, [e.target.name]:e.target.value})
   }
 
-  const addPatient = (patient) => setPatientsData(current => [...current, patient])
+  const addPatient = (patient) => setPatientsData(current =>
+    [...current, patient]
  
-  
+  )
   const handleSubmitPatient = (e) => {
       e.preventDefault()
       fetch("http://localhost:9292/patients", {
@@ -75,6 +82,7 @@ function App() {
   })
   
   const handleDelete = (patient) => {
+    
     fetch(`http://localhost:9292/patients/${patient.id}`,{
       method: "DELETE",
    
@@ -87,39 +95,41 @@ function App() {
 
 } 
 
-
-const addReview = (review) => setReviews(current => [review, ...current])
-
  
-  return (
-    <ThemeProvider theme={theme}>
-    <div>
-      <Navbar/>
-      <Switch>
-       <Route exact path="/">
-        <Home />
-     </Route>
-       <Route exact path="/form">
-      <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
+const UpdateReview = (patient) => setPtReviews(current =>
+   setUpdateReview( [...current, patient])
+   
+  )
+ 
+return (
+  <ThemeProvider theme={theme}>
+  <div>
+    <Navbar/>
+    <Switch>
+     <Route exact path="/">
+      <Home />
+   </Route>
+     <Route exact path="/form">
+    <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
+    </Route>
+       <Route exact path="/review/:Id">
+    <ReviewForm UpdateReview={UpdateReview} />
+    </Route>
+      <Route exact path="/edit/patients/:id">
+        <EditPatientForm patientsData={patientsData} updatedProduction={updatedProduction} />
+    </Route>
+      <Route exact path="/patients">
+        <PatientContainer patientsData={patientsData} handleDelete={handleDelete}/>
       </Route>
-         <Route exact path="/review/:patientId/post">
-      <ReviewForm addReview={addReview}/>
+      <Route exact path="/patients/:id">
+        <PatientDetails data={data}  />
       </Route>
-        <Route exact path="/edit/patients/:id">
-          <EditPatientForm updatedProduction={updatedProduction} />
-      </Route>
-        <Route exact path="/patients">
-          <PatientContainer patientsData={patientsData}/>
-        </Route>
-        <Route exact path="/patients/:id">
-          <PatientDetails handleDelete={handleDelete} />
-        </Route>
-      
-      </Switch>
-      <Footer/>
-    </div>
-    </ThemeProvider>
-  );
+    
+    </Switch>
+    <Footer/>
+  </div>
+  </ThemeProvider>
+);
 }
 
 export default App;

@@ -5,6 +5,7 @@ This project uses React.js as frontend and ruby using Sinatra, ActiveRecord, ORM
 This comprehensive project involves DB migrations for creating tables, use Active Record to interact with a database e.t.c, SQL, ORM, ActiveRecord, and Sintra.
 
 This project focused on helping health sectors to manage data,  and build an association between different users, e.t.c. It will help to keep a clean record of patients, physicians, and hospital information and its associations. Which will thereby improve the quality of patient care and improve patient satisfaction. 
+Patients are able to create, update , delete personal personal information and leave review of the quality of care received.
 
 ### Features
 * Home page/
@@ -13,7 +14,7 @@ This project focused on helping health sectors to manage data,  and build an ass
 * Patient page "/patients"
 * Physicians page "/physicians"
 * Review page "/review/:patientId/post"
-* Appointments page "/appointment"
+
 
 ### MVP ###
 updating state using a setState function after receiving response from a 
@@ -22,4 +23,3 @@ updating state using a setState function after receiving response from a
 * PATCH,
 * DELETE request.
 * One to many relationship
-* Many to many relationship
