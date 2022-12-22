@@ -27,8 +27,7 @@ function App() {
   const [patientForm, setPatientForm] = useState(initialized)
   const [data, setData] = useState([])
   const [patientsData, setPatientsData] = useState([])
-  const [ptReviews, setPtReviews] = useState([])
-  const [updateReview, setUpdateReview] = useState([])
+  const [render, setRender] = useState([])
 
   const history = useHistory()
 
@@ -39,13 +38,12 @@ function App() {
     .then(res => res.json())
     .then(data => {
       setPatientsData(data)
-      setPtReviews(data)
       setData(data)
       
     
     })
     
-  }, [updateReview])
+  }, [render])
   
 
   const handleChangePatientForm = (e) => {
@@ -96,8 +94,8 @@ function App() {
 } 
 
  
-const UpdateReview = (patient) => setPtReviews(current =>
-   setUpdateReview( [...current, patient])
+const updateReview = (patient) => setData(current =>
+   setRender( [...current, patient])
    
   )
  
@@ -113,7 +111,7 @@ return (
     <PatientForm handleChangePatientForm={handleChangePatientForm} patientForm={patientForm} handleSubmitPatient={handleSubmitPatient}/>
     </Route>
        <Route exact path="/review/:Id">
-    <ReviewForm UpdateReview={UpdateReview} />
+    <ReviewForm updateReview={updateReview} />
     </Route>
       <Route exact path="/edit/patients/:id">
         <EditPatientForm patientsData={patientsData} updatedProduction={updatedProduction} />

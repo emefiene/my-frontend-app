@@ -3,7 +3,7 @@ import { useParams ,useHistory } from 'react-router-dom'
 import styled from "styled-components"
 
 
-const ReviewForm = ({UpdateReview}) => {
+const ReviewForm = ({updateReview}) => {
     const reviewInitial = {
         comments:"",
       }
@@ -31,7 +31,7 @@ const ReviewForm = ({UpdateReview}) => {
           body: JSON.stringify(reviewData)
         })
         .then(res => res.json())
-        .then(UpdateReview)
+        .then(updateReview)
         history.push("/patients")
     
     }
